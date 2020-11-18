@@ -23,7 +23,8 @@ public class OpossumBehaviour : MonoBehaviour
     public bool isGroundAhead;
     public bool onRamp;
     public RampDirection rampDirection;
-   
+
+    public LOS opossumLOS; 
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +36,25 @@ public class OpossumBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (_HasLOS())
+        {
+            Debug.Log("Opossum can see the player");
+        }
         _LookInFront();
         _LookAhead();
         _Move();
+    }
+
+    private bool _HasLOS()
+    {
+        if (opossumLOS.colliders.Count > 0)
+        {
+            if (opossumLOS.collidesWith.gameObject.name == "Player" && opossumLOS.colliders[0].gameObject.name == "Player")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void _LookInFront()

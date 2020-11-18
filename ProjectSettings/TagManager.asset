@@ -8,6 +8,8 @@ TagManager:
   - Platforms
   - Walls
   - Ramps
+  - Fire
+  - Opossum
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Platforms
   - Walls
   - Ramps
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 
